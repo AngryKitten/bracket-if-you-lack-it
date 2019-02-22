@@ -1,0 +1,24 @@
+{
+  "name": "bracket-if-you-lack-it",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node index.js >> output.log 2>> errors.log",
+    "serve-stay": "node index.js >> output.log 2>> errors.log &"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngryKitten/bracket-if-you-lack-it.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AngryKitten/bracket-if-you-lack-it/issues"
+  },
+  "homepage": "https://github.com/AngryKitten/bracket-if-you-lack-it#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}
