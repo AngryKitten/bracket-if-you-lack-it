@@ -17,7 +17,7 @@ function initalizeBracketNameList() {
     document.getElementById('cars-form-container').innerHTML = '';
     bracketNameList.map(bracketName => {
       document.getElementById('bracket-name-list').innerHTML += `
-        <div><span onclick="selectBracket('${bracketName}')">${bracketName}</span></div>
+        <div><span class="clickable" onclick="selectBracket('${bracketName}')">${bracketName}</span></div>
       `;
     });
   }
@@ -90,6 +90,10 @@ function deleteCar(carIndex) {
 }
 
 function saveBracket() {
+  for (let i = 0; i < carsList.length; i++) {
+    carsList[i].carNumber = document.getElementById(carsList[i].carNumber).value;
+    carsList[i].carName = document.getElementById(carsList[i].carName).value;
+  }
   localStorage.setItem(bracketName, JSON.stringify(carsList));
   window.location.href = 'index.html';
 }

@@ -5,3 +5,74 @@
 .loser {
   color: red;
 }
+
+#bracket-main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#bracket-main-group, #bracket-winner-group {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(50vw - 8px);
+}
+
+.bracket-group, .bracket-winner {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.bracket-group-number {
+  display: none;
+}
+
+.bracket-group-car {
+  border-top: 3px solid black;
+  border-right: 5px solid black;
+  border-bottom: 3px solid black;
+  box-sizing: border-box;
+  padding: 16px 0;
+}
+
+.bracket-group-car:nth-child(2) {
+  border-top-width: 5px;
+}
+
+.bracket-group-car:last-child {
+  border-bottom-width: 5px;
+}
+
+.bracket-group-car-number, .bracket-group-car-name {
+  display: inline-block;
+  font-size: 64px;
+}
+
+.bracket-group-car-number {
+  text-align: right;
+  width: 150px;
+}
+
+.bracket-winner {
+  align-content: flex-end;
+}
+
+.bracket-winner-car {
+  border-bottom: 6px solid black;
+  padding: 16px 0;
+}
+
+.bracket-winner-car-number, .bracket-winner-car-name {
+  display: inline-block;
+  font-size: 64px;
+}
+
+.bracket-winner-car-number {
+  text-align: right;
+  width: 250px;
+}

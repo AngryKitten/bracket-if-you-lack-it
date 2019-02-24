@@ -13,10 +13,11 @@ function initalizeBracketNameList() {
     bracketNameList = JSON.parse(localStorage.getItem('bracketNameList'));
     document.getElementById('bracket-header-name').innerHTML = '';
     document.getElementById('bracket-name-list').innerHTML = '';
-    document.getElementById('bracket-main-container').innerHTML = '';
+    document.getElementById('bracket-main-group').innerHTML = '';
+    document.getElementById('bracket-winner-group').innerHTML = '';
     bracketNameList.map(bracketName => {
       document.getElementById('bracket-name-list').innerHTML += `
-        <div><span onclick="selectBracket('${bracketName}')">${bracketName}</span></div>
+        <div><span class="clickable" onclick="selectBracket('${bracketName}')">${bracketName}</span></div>
       `;
     });
   }
@@ -119,15 +120,24 @@ function initalizeBracketGroupsDisplay() {
   for (let i = 0; i < carsList.length; i++) {
     if (carsList[i].bracketGroup === activeBracketGroupNumber) {
       document.getElementById('bracket-group-' + activeBracketGroupNumber).innerHTML += `
-        <div id="car-${i}" onclick="selectWinner(${i})">${carsList[i].carNumber} | ${carsList[i].carName}</div>
+        <a href="#bracket-group-${activeBracketGroupNumber}" id="car-${i}" class="bracket-group-car" onclick="selectWinner(${i})">
+          <span class="bracket-group-car-number">${carsList[i].carNumber} |</span>
+          <span class="bracket-group-car-name">${carsList[i].carName}</span>
+        </a>
       `;
     } else {
       activeBracketGroupNumber++;
-      document.getElementById('bracket-main-container').innerHTML += `
-        <div id="bracket-group-${activeBracketGroupNumber}">
-          <div id="bracket-group-number">${activeBracketGroupNumber}</div>
-          <div id="car-${i}" onclick="selectWinner(${i})">${carsList[i].carNumber} | ${carsList[i].carName}</div>
+      document.getElementById('bracket-main-group').innerHTML += `
+        <div id="bracket-group-${activeBracketGroupNumber}" class="bracket-group">
+          <div class="bracket-group-number">${activeBracketGroupNumber}</div>
+          <a href="#bracket-group-${activeBracketGroupNumber}" id="car-${i}" class="bracket-group-car" onclick="selectWinner(${i})">
+            <span class="bracket-group-car-number">${carsList[i].carNumber} |</span>
+            <span class="bracket-group-car-name">${carsList[i].carName}</span>
+          </a>
         </div>
+      `;
+      document.getElementById('bracket-winner-group').innerHTML += `
+        <div id="bracket-winner-${activeBracketGroupNumber}" class="bracket-winner"></div>
       `;
     }
   }
@@ -145,6 +155,12 @@ function selectWinner(winnerIndex) {
       document.getElementById('car-' + i).classList.add('loser');
     }
   }
+  document.getElementById('bracket-winner-' + activeBracketGroupNumber).innerHTML = `
+    <div id="bracket-winner-car-${winnerIndex}" class="bracket-winner-car">
+      <span class="bracket-winner-car-number">${carsList[winnerIndex].carNumber} |</span>
+      <span class="bracket-winner-car-name">${carsList[winnerIndex].carName}</span>
+    </div>
+  `;
 }
 
 function randomize(array) {
