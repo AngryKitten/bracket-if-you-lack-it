@@ -170,6 +170,7 @@ function proceedToNextRound() {
 }
 
 function resetRound() {
+  carsList = carsList.filter(car => car.bracketGroupStatus === 'winner');
   let winnerIndex = carsListBackup.findIndex(car => car.carNumber === carsList[0].carNumber && car.carName === carsList[0].carName);
   carsListBackup.splice(winnerIndex, 1);
   carsList = [...carsListBackup];
