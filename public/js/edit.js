@@ -28,7 +28,7 @@ function selectBracket(bracketEditName) {
   document.getElementById('bracket-header-name').innerHTML = bracketName;
   carsList = JSON.parse(localStorage.getItem(bracketName));
   document.getElementById('bracket-name-list').innerHTML = `
-    <div><span onclick="initalizeBracketNameList()">< Back to bracket list</span></div>
+    <div><span class="clickable" onclick="initalizeBracketNameList()">< Back to bracket list</span></div>
   `;
   document.getElementById('cars-edit-list').innerHTML += `
     <div><input type="text" id="bracket-name" placeholder="Bracket Name" value="${bracketName}"></div>

@@ -74,5 +74,14 @@
 
 .bracket-winner-car-number {
   text-align: right;
-  width: 250px;
+  width: 150px;
+}
+
+#next-round-display {
+  align-items: center;
+  display: flex;
+  font-size: 32px;
+  font-weight: bold;
+  justify-content: center;
+  margin-bottom: 32px;
 }
