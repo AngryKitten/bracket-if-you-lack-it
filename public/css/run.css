@@ -6,9 +6,30 @@
   color: red;
 }
 
-#bracket-main-container {
+#text-size-change {
+  align-items: center;
   display: flex;
   justify-content: space-between;
+}
+
+#text-size-change > .clickable {
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: flex;
+  font-size: 24px;
+  height: 24px;
+  justify-content: center;
+  width: 24px;
+}
+
+#text-size-change > .clickable:hover {
+  border-color: blue;
+}
+
+#bracket-main-container {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -48,12 +69,13 @@
   border-bottom-width: 5px;
 }
 
-.bracket-group-car-number, .bracket-group-car-name {
+.bracket-item {
   display: inline-block;
-  font-size: 64px;
+  font-size: 36px;
 }
 
-.bracket-group-car-number {
+.bracket-group-car-number,
+.bracket-winner-car-number {
   text-align: right;
   width: 150px;
 }
@@ -67,21 +89,35 @@
   padding: 16px 0;
 }
 
-.bracket-winner-car-number, .bracket-winner-car-name {
-  display: inline-block;
-  font-size: 64px;
-}
-
-.bracket-winner-car-number {
-  text-align: right;
-  width: 150px;
-}
-
-#next-round-display {
+#bracket-next-round, #bracket-return {
   align-items: center;
   display: flex;
   font-size: 32px;
   font-weight: bold;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 32px;
+}
+
+#bracket-results {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 32px;
+  justify-content: center;
+}
+
+.results-group {
+  border-bottom: 5px solid black;
+  padding: 16px;
+  width: 100%;
+}
+
+.results-place, .results-number {
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+
+#bracket-return {
+  margin-top: 100px;
 }
