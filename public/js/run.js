@@ -188,6 +188,7 @@ function selectWinner(winnerIndex) {
       `;
     }
   }
+  changeTextSize(null);
 }
 
 function proceedToNextRound() {
@@ -212,17 +213,18 @@ function showResults() {
     let lastNum = (i + 1).toString()[(i + 1).toString().length - 1];
     document.getElementById('bracket-results').innerHTML += `
       <div class="results-group">
-        <span class="results-place">${
+        <span class="bracket-item results-place">${
           lastNum === '1' ? i + 1 + 'st' : lastNum === '2' ? i + 1 + 'nd' : lastNum === '3' ? i + 1 + 'rd' : i + 1 + 'th'
         }:</span>
-        <span class="results-number">${winnersList[i].carNumber} |</span>
-        <span class="results-name">${winnersList[i].carName}</span>
+        <span class="bracket-item results-number">${winnersList[i].carNumber} |</span>
+        <span class="bracket-item results-name">${winnersList[i].carName}</span>
       </div>
     `;
   }
   document.getElementById('bracket-return').innerHTML = `
     <div class="clickable" onclick="returnToBracket()">< Back to bracket</div>
   `;
+  changeTextSize(null);
 }
 
 function returnToBracket() {
